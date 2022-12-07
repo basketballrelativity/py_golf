@@ -5,7 +5,7 @@ This script contains the functionality
 to pull PGA Tour schedule data
 """
 
-from utils import api_call
+from .utils import api_call
 
 import pandas as pd
 
@@ -58,8 +58,8 @@ class Schedule:
                 "WEEK_NUMBER": "week_number",
                 "SEQUENCE_NUMBER": "sequence_number",
                 "TRN_TYPE": "tournament_type",
-                "SCORED": "scored",
-                "FORMAT": "play_format",
+                "SCORED": "scoring_type",
+                "FORMAT": "tournament_format",
                 "COURSE_NAME": "course_name",
                 "CITY": "city",
                 "STATE": "state",
