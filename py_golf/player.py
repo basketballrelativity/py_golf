@@ -14,6 +14,13 @@ URL = "https://statdata.pgatour.com/players/player.json"
 class Player:
     """ The Player class contains all resources needed
     to use the player-related API calls.
+
+    @param **user_tracking_id** (*str*): Tracking ID necessary for
+        downloading data from pgatour.com
+
+    Attributes:
+
+        **data** (*pd.DataFrame*): DataFrame of the player metadata
     """
 
     def __init__(self, user_tracking_id):
