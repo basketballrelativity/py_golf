@@ -29,11 +29,13 @@ class Leaderboard:
     @param **year** (*int*): Year in YYYY format for which the schedule
         is desired. The schedule must be set or have been played to not
         return an error
-    @param **resp_format** (*str*): Format for the data to be returned
+    @param **event_id** (*int*): Unique identifier for the event of interest
 
     Attributes:
 
-        **data** (*pd.DataFrame*): DataFrame of the requested tour schedule
+        **holes** (*pd.DataFrame*): DataFrame of the hole data for the event
+        **players** (*pd.DataFrame*): DataFrame of the player data for the event
+        **shots** (*pd.DataFrame*): DataFrame of the shot data for the event
     """
 
     def __init__(self, user_tracking_id,
@@ -42,8 +44,6 @@ class Leaderboard:
 
         url = URL.format(t_code=t_code, event_id=event_id, year=year)
         api_resp = api_call(url, params={"userTrackingId": user_tracking_id})
-
-        self.api_resp = api_resp
 
         self.holes = l_utils.get_hole_information(api_resp["leaderboard"])
         self.players = l_utils.get_player_information(api_resp["leaderboard"])
